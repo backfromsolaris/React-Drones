@@ -44,6 +44,7 @@ export const DataTable = () =>{
     };
     let handleClose = () => {
         setOpen(false)
+        getData()
     };
 
     let handleCheckbox = (id:GridRowModel) =>{

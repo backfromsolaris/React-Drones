@@ -8,6 +8,7 @@ import drone_image from '../../assets/images/sample_drone_image.jpg'
 
 // importing router functionality
 import {Link} from 'react-router-dom';
+import { AuthCheck } from 'reactfire';
 
 interface Props{
     title: string;
@@ -66,33 +67,41 @@ const useStyles = makeStyles({
 
 
 export const Home = (props:Props) => {
+    //New classes for Home component (with styling)
     const classes = useStyles();
-
+    
     return (
         <div className={classes.root}>
+            {/*New and Updated HTML Code */}
             <nav>
                 <div className={classes.navbar_container}>
-                    <h1 className={classes.logo}>
-                        <Link to='/' className={`${classes.logo_a} ${classes.logo_navigation}`}>Operators 68 Drones</Link>
+                    <h1 className={ `${classes.logo} `}>
+                        <Link to='/' className={ `${classes.logo_a} ${classes.logo_navigation}` }>Operators 68</Link>
                     </h1>
-                    <ul className={`${classes.navigation} ${classes.logo_navigation}`}>
+                    <ul className={ `${classes.navigation} ${classes.logo_navigation}` }>
                         <li>
                             <Link to='/' className={classes.nav_a}>Home</Link>
                         </li>
-                        <li>
-                            <Link to='/signin' className={classes.nav_a}>Sign In</Link>
-                        </li>
+                        <AuthCheck fallback ={
+                            <li>
+                                <Link to='/signin' className={classes.nav_a}>Sign In</Link>
+                            </li>
+                        }>
                         <li>
                             <Link to='/dashboard' className={classes.nav_a}>Dashboard</Link>
                         </li>
+                        <li>
+                            <Link to="/signout" className={classes.nav_a}>Sign Out</Link>
+                        </li>
+                        </AuthCheck>
                     </ul>
                 </div>
             </nav>
             <main className={classes.main}>
                 <div className={classes.main_text}>
-                    <h1>{props.title}</h1>
-                    <p>Welcome to the Operators Inventory</p>
-                    <Button variant="contained" color="primary">Click Me</Button>
+                    <h1>{ props.title }</h1>
+                    <p>Welcome to Operator's Inventory</p>
+                    <Button color='primary' variant="contained">Click Me</Button>
                 </div>
             </main>
         </div>

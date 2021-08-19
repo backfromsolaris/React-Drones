@@ -28,7 +28,7 @@ export const DroneForm = (props:DroneFormProps) => {
         console.log(props.id)
 
         if(props.id!){
-            server_calls.update(props.id!, data)
+            server_calls.update(props.id, data)
             console.log(`Updated:${data} ${props.id}`)
             window.location.reload()
             event.target.reset();

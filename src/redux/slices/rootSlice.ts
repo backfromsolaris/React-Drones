@@ -4,7 +4,7 @@ const rootSlice = createSlice({
     name: "root",
     initialState: {
         name: 'classic drone',
-        price: "2000.00",
+        price: 2000.00,
         description: "Redefine what's possible",
         camera_quality: '4k',
         flight_time: 'Approx 20mins',
