@@ -27,18 +27,17 @@ export const DroneForm = (props:DroneFormProps) => {
     const onSubmit = (data:any, event:any) => {
         console.log(props.id)
 
-        if( props.id!){
+        if(props.id!){
             server_calls.update(props.id!, data)
             console.log(`Updated:${data} ${props.id}`)
             window.location.reload()
             event.target.reset();
         }else{
             dispatch(chooseName(data.name))
+            dispatch(choosePrice(data.price))
             server_calls.create(store.getState())
-            window.location.reload()
-            event.target.reset();
         }
-        }
+    }
     return (
         <div>
             <form onSubmit = {handleSubmit(onSubmit)}>
