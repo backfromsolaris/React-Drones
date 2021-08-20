@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataGrid, GridColDef, GridRowModel, GridValueGetterParams } from '@material-ui/data-grid';
+import { DataGrid, GridColDef, GridRowModel } from '@material-ui/data-grid';
 import { server_calls } from '../../api';
 import { useGetData } from '../../custom-hooks';
 import {
